@@ -1,8 +1,14 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xml" href="convert.xsl"?>
 <forms>
-  <form id="test1">
-    <title>Объявление - Заголовок</title>
-    <body>объявление - тело</body>
+  <form id="form1">
+    <notify title="Объявление - Заголовок 1">
+      объявление - тело 1
+    </notify>
+
+    <notify title="Объявление - Заголовок 2">
+      объявление - тело 2
+    </notify>
+
   </form>
 </forms>

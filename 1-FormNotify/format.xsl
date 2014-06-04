@@ -8,17 +8,23 @@
 <xsl:template match="/">
   <html>
   <body>
-    <form id="$form_name">
-    </form>
     <xsl:apply-templates select="$form_name" />
   </body>
   </html>
 </xsl:template>
 
 <xsl:template match="/forms/form">
+  <ul>
+    <xsl:apply-templates select="notify" />
+  </ul>
+</xsl:template>
+
+<xsl:template match="notify">
   <li>
-    <h3><xsl:value-of select="notify/@title"/></h3>
-    <p><xsl:value-of select="notify"/></p>
+    <h3><xsl:value-of select="@title"/></h3>
+    <p>
+      <xsl:value-of select="."/>
+    </p>
   </li>
 </xsl:template>
 

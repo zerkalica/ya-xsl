@@ -3,14 +3,14 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:output method="xml" indent="yes"/>
+<xsl:param name="form_name" />
 
 <xsl:template match="/">
-  <xsl:param name="form_name" />
   <html>
   <body>
     <form id="$form_name">
     </form>
-    <xsl:apply-templates select="/forms/form[@id=$form_name]" />
+    <xsl:apply-templates select="$form_name" />
   </body>
   </html>
 </xsl:template>

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-xsltproc --stringparam form_name test1 -o output.xml format.xsl data.xml
+xsltproc --param form_name "/forms/form[@id='form1']" -o output.xml format.xsl data.xml

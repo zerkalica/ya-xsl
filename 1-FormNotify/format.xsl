@@ -8,7 +8,7 @@
 <xsl:template match="/">
   <html>
   <body>
-    <xsl:apply-templates select="$form_name" />
+    <xsl:apply-templates select="/forms/form[@id=$form_name]" />
   </body>
   </html>
 </xsl:template>
@@ -29,6 +29,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
-
-<!-- http://htmlweb.ru/xml/xslt1.php -->
 

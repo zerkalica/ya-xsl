@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rng:element name="forms" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+  <rng:zeroOrMore>
+    <rng:element name="form">
+      <rng:attribute name="id">
+        <text/>
+      </rng:attribute>
+      <rng:zeroOrMore>
+        <rng:element name="notify">
+          <rng:attribute name="title">
+            <text/>
+          </rng:attribute>
+          <rng:text/>
+        </rng:element>
+      </rng:zeroOrMore>
+    </rng:element>
+  </rng:zeroOrMore>
+</rng:element>

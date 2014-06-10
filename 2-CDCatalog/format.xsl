@@ -8,17 +8,16 @@
 <xsl:param name="artist"/>
 
 <!-- Варианты: artist*, album, year, studio -->
-<xsl:param name="sort">@artist</xsl:param>
+<xsl:param name="sortparam" select="'artist'"/>
 
 <!-- Варианты: ascending*, descending -->
-<xsl:param name="order">ascending</xsl:param>
-
+<xsl:param name="order" select="'ascending'"/>
 
 <xsl:template match="/">
   <html>
   <body>
     <xsl:apply-templates select="/discs/album[(not($year) or @year=$year) and (not($artist) or @artist=$artist)]">
-      <xsl:sort data-type="text" order="{$order}" select="@artist" />
+      <xsl:sort data-type="text" order="{$order}" select="*[name()=$sortparam]" />
     </xsl:apply-templates>
   </body>
   </html>

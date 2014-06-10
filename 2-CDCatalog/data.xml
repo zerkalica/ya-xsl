@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xml" href="convert.xsl"?>
 <discs>
-  <album year="2014" artist="BBB" studio="test studio" cover="test">
+  <album year="2015" artist="BBB" studio="test studio" cover="test">
+    <year>2015</year>
     <track>track 1</track>
     <track>track 2</track>
   </album>
-  <album year="2015" artist="AAA" studio="test studio 2" cover="test 2">
+  <album year="2014" artist="AAA" studio="test studio 2" cover="test 2">
+    <year>2014</year>
+    <artist>2014</artist>
     <track>track 1</track>
     <track>track 2</track>
     <track>track 3</track>

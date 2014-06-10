@@ -18,6 +18,10 @@
     </notify>
 
     <notify title="Объявление - Заголовок 4">
+      <h2>test</h2>
+      <ul>
+        <li><span>test</span> 222</li>
+      </ul>
       объявление - тело 4
     </notify>
   </form>

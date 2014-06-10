@@ -23,7 +23,7 @@
   <li>
     <h3><xsl:value-of select="@title"/></h3>
     <p>
-      <xsl:value-of select="."/>
+      <xsl:copy-of select="node()"/>
     </p>
   </li>
 </xsl:template>

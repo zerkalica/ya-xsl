@@ -3,19 +3,23 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:output method="xml" indent="yes"/>
+
 <xsl:param name="year" />
-<!-- Варианты: artist*, album, year, studio -->
-<xsl:param name="sort" value="artist"/>
-
-<!-- Варианты: asc*, desc -->
-<xsl:param name="order" value="asc"/>
-
 <xsl:param name="artist"/>
+
+<!-- Варианты: artist*, album, year, studio -->
+<xsl:param name="sort">@artist</xsl:param>
+
+<!-- Варианты: ascending*, descending -->
+<xsl:param name="order">ascending</xsl:param>
+
 
 <xsl:template match="/">
   <html>
   <body>
-    <xsl:apply-templates select="/discs/album[@year=$year]" />
+    <xsl:apply-templates select="/discs/album[(not($year) or @year=$year) and (not($artist) or @artist=$artist)]">
+      <xsl:sort data-type="text" order="{$order}" select="@artist" />
+    </xsl:apply-templates>
   </body>
   </html>
 </xsl:template>
@@ -51,7 +55,6 @@
         </li>
       </ul>
     </div>
-
   </div>
 </xsl:template>
 

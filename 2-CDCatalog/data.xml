@@ -1,17 +1,64 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xml" href="convert.xsl"?>
-<discs>
-  <album year="2015" artist="BBB" studio="test studio" cover="test">
-    <year>2015</year>
-    <track>track 1</track>
-    <track>track 2</track>
-  </album>
-  <album year="2014" artist="AAA" studio="test studio 2" cover="test 2">
+<?xml-stylesheet type="text/xml" href="format.xsl"?>
+<disks>
+  <disk>
+    <album>Satellite</album>
+    <year>1998</year>
+    <artist>Sebastien Marchal</artist>
+    <label>Workbench Music</label>
+    <cover url="http://s.pixogs.com/image/R-1338847-1218487380.jpeg"/>
+    <tracks>
+      <track>Twilight Of Life</track>
+      <track>Blue Clouds</track>
+      <track>Reflections</track>
+      <track>Windfall</track>
+      <track>Mea</track>
+      <track>Forbidden Dreams</track>
+      <track>Satellite</track>
+    </tracks>
+  </disk>
+
+  <disk>
+    <album>Zoo</album>
+    <year>2006</year>
+    <artist>Sebastien Marchal</artist>
+    <label>Workbench Music</label>
+    <cover url="http://s.pixogs.com/image/R-1338841-1218489131.jpeg"/>
+    <tracks>
+      <track>Sunflower</track>
+      <track>Crocodile Tears</track>
+      <track>Zoo (Dawn)</track>
+      <track>Particles</track>
+      <track>Serpents</track>
+    </tracks>
+  </disk>
+
+  <disk>
+    <album>Without Words (EP)</album>
     <year>2014</year>
-    <artist>2014</artist>
-    <track>track 1</track>
-    <track>track 2</track>
-    <track>track 3</track>
-    <track>track 4</track>
-  </album>
-</discs>
+    <artist>Tom Day</artist>
+    <label>Tom Day</label>
+    <cover url="https://i1.sndcdn.com/artworks-000077538965-uo5jko-t500x500.jpg?30a2558"/>
+    <tracks>
+      <track>Trapped</track>
+      <track>Lorn</track>
+      <track>Solace</track>
+      <track>Free</track>
+    </tracks>
+  </disk>
+
+  <disk>
+    <album>2013 Collection</album>
+    <year>2013</year>
+    <artist>Tom Day</artist>
+    <label>Tom Day</label>
+    <cover url="https://i1.sndcdn.com/artworks-000065309561-jq47s3-t500x500.jpg?30a2558"/>
+    <tracks>
+      <track>My Last Year</track>
+      <track>Crystal Beach</track>
+      <track>Escape</track>
+      <track>Archie</track>
+      <track>Family</track>
+    </tracks>
+  </disk>
+</disks>

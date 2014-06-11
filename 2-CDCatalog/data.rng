@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rng:element name="disks" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+  <rng:oneOrMore>
+    <rng:element name="disk">
+      <rng:interleave>
+        <rng:element name="album">
+          <rng:text/>
+        </rng:element>
+        <rng:element name="year">
+          <rng:text/>
+        </rng:element>
+        <rng:element name="artist">
+          <rng:text/>
+        </rng:element>
+        <rng:element name="label">
+          <rng:text/>
+        </rng:element>
+        <rng:element name="cover">
+          <rng:attribute name="url"/>
+        </rng:element>
+        <rng:element name="tracks">
+          <rng:oneOrMore>
+            <rng:element name="track">
+              <rng:text/>
+            </rng:element>
+          </rng:oneOrMore>
+        </rng:element>
+      </rng:interleave>
+    </rng:element>
+  </rng:oneOrMore>
+</rng:element>

@@ -8,11 +8,26 @@
       </rng:attribute>
       <rng:zeroOrMore>
         <rng:element name="notify">
-          <rng:attribute name="title">
-            <text/>
-          </rng:attribute>
-          <rng:text/>
+
+          <rng:element name="title">
+            <rng:text/>
+          </rng:element>
+
+          <rng:zeroOrMore>
+            <rng:element name="section">
+              <rng:text/>
+              <rng:zeroOrMore>
+                <rng:choice>
+                  <rng:element name="para1"><rng:text/></rng:element>
+                  <rng:element name="para2"><rng:text/></rng:element>
+                  <rng:element name="para3"><rng:text/></rng:element>
+                </rng:choice>
+              </rng:zeroOrMore>
+            </rng:element>
+          </rng:zeroOrMore>
+
         </rng:element>
+
       </rng:zeroOrMore>
     </rng:element>
   </rng:zeroOrMore>

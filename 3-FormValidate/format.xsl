@@ -8,7 +8,11 @@
 >
 
 <xsl:output method="html" encoding="UTF-8" indent="yes"/>
+
+<xsl:variable name="form_view" select="/html:html/html:body/my:form/*"/>
 <xsl:variable name="form_model" select="/html:html/html:head/xf:model"/>
+<xsl:variable name="form_data" select="$form_model/xf:instance/data"/>
+
 <xsl:template match="/">
   <html>
   <body>
@@ -28,8 +32,16 @@
     <xsl:attribute name="action"><xsl:value-of select="@action"/></xsl:attribute>
     <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
     <xsl:attribute name="method"><xsl:value-of select="@method"/></xsl:attribute>
-    <xsl:apply-templates select="/html:html/html:body/my:form/*"/>
+    <xsl:apply-templates select="$form_view"/>
+    <xsl:apply-templates select="$form_data/*[not(name()=$form_view/@ref)]" />
   </form>
+</xsl:template>
+
+<xsl:template match="xf:instance/data/*">
+  <input type="hidden">
+    <xsl:attribute name="name"><xsl:value-of select="name()"/></xsl:attribute>
+    <xsl:attribute name="value"><xsl:value-of select="text()"/></xsl:attribute>
+  </input>
 </xsl:template>
 
 <xsl:template name="form-element-attributes">
@@ -63,7 +75,7 @@
         <xsl:with-param name="ref" select="@ref"/>
       </xsl:call-template>
       <xsl:attribute name="value">
-        <xsl:value-of select="$form_model/xf:instance/data/*[name()=$ref]"/>
+        <xsl:value-of select="$form_data/*[name()=$ref]"/>
       </xsl:attribute>
     </input>
     <div class="form-error xform-validatable-error-placeholder"></div>

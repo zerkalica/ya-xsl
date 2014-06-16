@@ -1,5 +1,10 @@
 <?xml-stylesheet href="format.xsl" type="text/xsl"?>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:my="http://example.com/myns">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xf="http://www.w3.org/2002/xforms"
+    xmlns:my="http://example.com/myns"
+>
   <head>
     <title>BaseX XForms Demo</title>
     <xf:model>
@@ -8,43 +13,45 @@
                id="search-form"/>
       <xf:instance xmlns="">
         <data>
-          <my:name>Вася</my:name>
-          <my:age>23</my:age>
+          <my:name>И</my:name>
+          <my:age>16</my:age>
+          <my:sex>F</my:sex>
           <my:documents>passport</my:documents>
-          <my:hidden-value>10</my:hidden_value>
+          <my:hidden_value>10</my:hidden_value>
         </data>
       </xf:instance>
-      <bind id="documents" nodeset="/data/my:documents" required="true()"/>
-      <bind id="name" nodeset="/data/my:name" required="true()" constraint="string-length(.) &lt; 45"/>
-      <bind id="age" nodeset="/data/my:age" type="xs:decimal" required="true()" constraint=". &gt; 17 &amp;&amp; &lt; 80" />
+      <xf:bind id="my:documents" nodeset="/data/my:documents" required="true()"/>
+      <xf:bind id="my:sex" nodeset="/data/my:sex" required="true()"/>
+      <xf:bind id="my:name" nodeset="/data/my:name" required="true()" constraint="string-length(.) &lt; 45 &amp;&amp; string-length(.) &gt; 2"/>
+      <xf:bind id="my:age" nodeset="/data/my:age" type="xf:decimal" required="true()" constraint=". &gt; 17 &amp;&amp; . &lt; 80" />
     </xf:model>
   </head>
 
   <body>
-    <my:form data-target-id="search-form">
-      <xf:input ref="name">
+    <my:form data-target-id="my:search-form">
+      <xf:input ref="my:name">
         <xf:label>Имя пользователя</xf:label>
-        <xf:alert>Имя должно быть заполнено и содержать не более 45 символов.</xf:alert>
+        <xf:alert>Имя должно быть заполнено и содержать от 2 до 45 символов.</xf:alert>
       </xf:input>
 
-      <xf:input ref="age">
+      <xf:input ref="my:age">
         <xf:label>Возраст</xf:label>
         <xf:alert>Возраст должен быть в диапазоне от 18 до 80 лет.</xf:alert>
       </xf:input>
 
-      <xs:select ref="documents">
-        <xs:label>Документы:</xs:label>
-        <xs:item>
-          <xs:label>Паспорт</xs:label>
-          <xs:value>passport</xs:value>
-        </xs:item>
-        <xs:item>
-          <xs:label>Права</xs:label>
-          <xs:value>driver_licence</xs:value>
-        </xs:item>
-      </xs:select>
+      <xf:select ref="my:documents">
+        <xf:label>Документы:</xf:label>
+        <xf:item>
+          <xf:label>Паспорт</xf:label>
+          <xf:value>passport</xf:value>
+        </xf:item>
+        <xf:item>
+          <xf:label>Права</xf:label>
+          <xf:value>driver_licence</xf:value>
+        </xf:item>
+      </xf:select>
 
-      <xf:select1 ref="sex">
+      <xf:select1 ref="my:sex">
         <xf:label>Пол:</xf:label>
         <xf:item>
           <xf:label>Муж</xf:label>
@@ -56,7 +63,7 @@
         </xf:item>
       </xf:select1>
 
-      <xf:submit submission="search-form">
+      <xf:submit submission="my:search-form">
         <xf:label>Искать</xf:label>
       </xf:submit>
     </my:form>

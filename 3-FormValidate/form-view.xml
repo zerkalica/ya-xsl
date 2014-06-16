@@ -4,6 +4,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xf="http://www.w3.org/2002/xforms"
     xmlns:my="http://example.com/myns"
+    xmlns:dyn="http://exslt.org/dynamic"
 >
   <head>
     <title>BaseX XForms Demo</title>
@@ -14,7 +15,7 @@
       <xf:instance xmlns="">
         <data>
           <my:name>И</my:name>
-          <my:age>16</my:age>
+          <my:age>18</my:age>
           <my:sex>F</my:sex>
           <my:documents>passport</my:documents>
           <my:hidden_value>10</my:hidden_value>
@@ -22,8 +23,9 @@
       </xf:instance>
       <xf:bind id="my:documents" nodeset="/data/my:documents" required="true()"/>
       <xf:bind id="my:sex" nodeset="/data/my:sex" required="true()"/>
-      <xf:bind id="my:name" nodeset="/data/my:name" required="true()" constraint="string-length(.) &lt; 45 &amp;&amp; string-length(.) &gt; 2"/>
-      <xf:bind id="my:age" nodeset="/data/my:age" type="xf:decimal" required="true()" constraint=". &gt; 17 &amp;&amp; . &lt; 80" />
+      <xf:bind id="my:name" nodeset="/data/my:name" required="true()" constraint="string-length(.) &lt;= 45 and string-length(.) &gt;= 2"/>
+      <xf:bind id="my:age" nodeset="/data/my:age" type="xf:decimal" required="true()" constraint=". &gt;= 17 and . &lt;= 80" />
+
     </xf:model>
   </head>
 

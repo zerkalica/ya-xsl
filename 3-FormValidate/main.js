@@ -9,6 +9,9 @@
   var prepareConstraint = function (constraint) {
     return constraint
       .replace(/\./g, 'value')
+      .replace(/\band\b/g, '&&')
+      .replace(/\bor\b/g, '||')
+      .replace(/\bnot\b/g, '!')
       .replace(/([\w]+)\-([\w]+)/gi, '$1_$2');
   };
 

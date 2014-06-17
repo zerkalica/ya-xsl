@@ -1,0 +1,18 @@
+<?xml-stylesheet href="format-b.xsl" type="text/xsl"?>
+<root
+    xmlns="http://example.com/myns"
+>
+  <request>
+    <host>mysite.com</host>
+    <url>/about</url>
+  </request>
+
+  <!-- структура проекта -->
+
+  <project>
+    <page name="Главная">/</page>
+    <page name="Каталог">/catalog</page>
+    <page name="О нас">/about</page>
+    <page name="Контакты">/contacts</page>
+  </project>
+</root>

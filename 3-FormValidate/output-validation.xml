@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://example.com/myns" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:dyn="http://exslt.org/dynamic" xmlns:exsl="http://exslt.org/common" xmlns:my="http://example.com/myns">
+  <errors>
+    <error-item>Имя должно быть заполнено и содержать от 2 до 45 символов.</error-item>
+  </errors>
+</root>

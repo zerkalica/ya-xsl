@@ -1,36 +1,32 @@
 <?xml-stylesheet href="format.xsl" type="text/xsl"?>
-<html
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<root
     xmlns:xf="http://www.w3.org/2002/xforms"
     xmlns:my="http://example.com/myns"
-    xmlns:dyn="http://exslt.org/dynamic"
+    xmlns="http://example.com/myns"
 >
-  <head>
-    <title>BaseX XForms Demo</title>
-    <xf:model>
+  <my:models>
+    <xf:model id="search-form">
       <xf:submission action="http://example.com/search"
                method="get"
-               id="search-form"/>
+               id="search-form-submission"/>
       <xf:instance xmlns="">
-        <data>
+        <my:data>
           <my:name>И</my:name>
           <my:age>18</my:age>
           <my:sex>F</my:sex>
           <my:documents>passport</my:documents>
           <my:hidden_value>10</my:hidden_value>
-        </data>
+        </my:data>
       </xf:instance>
-      <xf:bind id="my:documents" nodeset="/data/my:documents" required="true()"/>
-      <xf:bind id="my:sex" nodeset="/data/my:sex" required="true()"/>
-      <xf:bind id="my:name" nodeset="/data/my:name" required="true()" constraint="string-length(.) &lt;= 45 and string-length(.) &gt;= 2"/>
-      <xf:bind id="my:age" nodeset="/data/my:age" type="xf:decimal" required="true()" constraint=". &gt;= 17 and . &lt;= 80" />
-
+      <xf:bind id="my:documents" nodeset="/my:data/my:documents" required="true()"/>
+      <xf:bind id="my:sex" nodeset="/my:data/my:sex" required="true()"/>
+      <xf:bind id="my:name" nodeset="/my:data/my:name" required="true()" constraint="string-length(.) &lt;= 45 and string-length(.) &gt;= 2"/>
+      <xf:bind id="my:age" nodeset="/my:data/my:age" type="xf:decimal" required="true()" constraint=". &gt;= 18 and . &lt;= 80" />
     </xf:model>
-  </head>
+  </my:models>
 
-  <body>
-    <my:form data-target-id="my:search-form">
+  <my:forms>
+    <my:form id="search-form">
       <xf:input ref="my:name">
         <xf:label>Имя пользователя</xf:label>
         <xf:alert>Имя должно быть заполнено и содержать от 2 до 45 символов.</xf:alert>
@@ -69,5 +65,6 @@
         <xf:label>Искать</xf:label>
       </xf:submit>
     </my:form>
-  </body>
-</html>
+  </my:forms>
+
+</root>

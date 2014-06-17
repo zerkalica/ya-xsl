@@ -8,7 +8,7 @@
 
   <xsl:variable name="form_view" select="/my:root/my:forms/my:form/*"/>
   <xsl:variable name="form_model" select="/my:root/my:models/xf:model"/>
-  <xsl:variable name="form_data" select="$form_model/xf:instance/my:data"/>
+  <xsl:variable name="form_default_data" select="$form_model/xf:instance/my:data"/>
 
   <xsl:variable name="no_errors_message">Нет ошибок</xsl:variable>
 

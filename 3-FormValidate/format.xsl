@@ -28,7 +28,7 @@
     <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
     <xsl:attribute name="method"><xsl:value-of select="@method"/></xsl:attribute>
     <xsl:apply-templates select="$form_view"/>
-    <xsl:apply-templates select="$form_data/*[not(name()=$form_view/@ref)]" />
+    <xsl:apply-templates select="$form_default_data/*[not(name()=$form_view/@ref)]" />
   </form>
 </xsl:template>
 
@@ -70,7 +70,7 @@
         <xsl:with-param name="ref" select="@ref"/>
       </xsl:call-template>
       <xsl:attribute name="value">
-        <xsl:value-of select="$form_data/*[name()=$ref]"/>
+        <xsl:value-of select="$form_default_data/*[name()=$ref]"/>
       </xsl:attribute>
     </input>
     <div class="form-error xform-validatable-error-placeholder"></div>

@@ -9,6 +9,7 @@
 >
 
 <xsl:import href="variables.xsl"/>
+<xsl:import href="submit-data.xsl"/>
 
 <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
@@ -54,13 +55,13 @@
 <xsl:template match="xf:bind">
   <xsl:variable name="id" select="@id"/>
   <xsl:choose>
-    <xsl:when test="(@required='true()' and not($form_data/*[name()=$id]/text()))">
+    <xsl:when test="(@required='true()' and not($form_submit/*[name()=$id]/text()))">
       <xsl:call-template name="error-item">
         <xsl:with-param name="message" select="$form_view[@ref=$id]/xf:alert"/>
       </xsl:call-template>
     </xsl:when>
     <xsl:when test="normalize-space(@constraint)">
-      <xsl:apply-templates select="$form_data/*[name()=$id]" mode="constraint-data">
+      <xsl:apply-templates select="$form_submit/*[name()=$id]" mode="constraint-data">
         <xsl:with-param name="constraint" select="@constraint"/>
         <xsl:with-param name="message" select="$form_view[@ref=$id]/xf:alert"/>
       </xsl:apply-templates>

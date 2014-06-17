@@ -1,0 +1,19 @@
+<?xml-stylesheet href="format.xsl" type="text/xsl"?>
+<menus
+    xmlns="http://example.com/myns"
+>
+  <menu id="menu1">
+    <item>
+      <title>Главная</title>
+      <url>/</url>
+    </item>
+    <item>
+      <title>Каталог</title>
+      <url>/catalog</url>
+    </item>
+    <item is-current='true()'>
+      <title>О нас</title>
+      <url>/about</url>
+    </item>
+  </menu>
+</menus>

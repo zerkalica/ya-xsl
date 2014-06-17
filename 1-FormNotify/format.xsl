@@ -4,6 +4,7 @@
 
 <xsl:output method="html" indent="yes"/>
 
+<!-- @id формы, в общем списке форм, объявления для которой нужно взять -->
 <xsl:param name="form_name" />
 
 <xsl:variable name="form_selector" select="/forms/form"/>
